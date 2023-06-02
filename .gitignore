@@ -1,0 +1,15 @@
+# intellij idea
+.idea/
+
+# драйвера для selenium
+.wdm/
+
+# временные файлы
+temp*
+*template*
+
+# логи
+logs/
+
+# миграции БД
+migrations/
