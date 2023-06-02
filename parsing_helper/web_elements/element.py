@@ -6,11 +6,11 @@ from selenium.webdriver.support.expected_conditions import element_to_be_clickab
     visibility_of_element_located
 from selenium.webdriver.support.wait import WebDriverWait
 
-import settings
+from .. import settings
 
 
 if TYPE_CHECKING:
-    from pages.base_page import BasePage
+    from parsing_helper.pages.base_page import BasePage
 
 
 class ExtendedWebElement:

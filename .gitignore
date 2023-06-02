@@ -8,6 +8,11 @@
 temp*
 *template*
 
+# генерируемые файлы
+CHANGELOG.md
+dist/
+parsing_helper.egg-info/
+
 # логи
 logs/
 

@@ -1,10 +1,12 @@
+import json
+
 import git
 import tap
 
 
 def get_version() -> str:
-    with open("version.txt", 'r') as version_file:
-        version = version_file.read().strip()
+    with open("project_data.json", 'r') as project_data_file:
+        version = json.load(project_data_file)["version"]
     return version
 
 

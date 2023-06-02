@@ -4,12 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import presence_of_all_elements_located
 from selenium.webdriver.support.wait import WebDriverWait
 
-import settings
 from .element import ExtendedWebElement
+from .. import settings
 
 
 if TYPE_CHECKING:
-    from pages.base_page import BasePage
+    from parsing_helper.pages.base_page import BasePage
 
 
 class ExtendedWebElementCollection:
