@@ -11,7 +11,7 @@ class Command(django_command.TelegramParserCommand):
     def create_all_users(self) -> list[auth_models.User]:
         return [self.create_user(user) for user in (self.settings.secrets.admin_user,)]
 
-    def create_user(self, user: SecretKeeper.ParserUser) -> auth_models.User:
+    def create_user(self, user: SecretKeeper.User) -> auth_models.User:
         user_model = get_user_model()
         users = user_model.objects.filter(username = user.username)
         if not users.exists():

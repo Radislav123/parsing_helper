@@ -13,10 +13,10 @@ def get_version() -> str:
 class ArgumentParser(tap.Tap):
     message: str = ""  # сообщение, записываемое с тегом
     remove: bool = False  # если установлен, удаляет тег
-    tag_name: str = get_version()  # задает специфичное, отличное от того, что указано в version.txt, имя тега
+    tag_name: str = get_version()  # задает специфичное, отличное от того, что указано в project_data.json, имя тега
 
 
-if __name__ == "__main__":
+def main() -> None:
     arguments = ArgumentParser().parse_args()
     repository = git.Repo()
     if arguments.remove:
@@ -29,3 +29,7 @@ if __name__ == "__main__":
         if arguments.message:
             message += f" с сообщением \"{arguments.message}\""
         print(message)
+
+
+if __name__ == "__main__":
+    main()

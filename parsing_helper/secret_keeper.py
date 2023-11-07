@@ -17,7 +17,7 @@ class SecretKeeper:
         ENGINE: str
         NAME: str
 
-    class DjangoAdminUser(Module):
+    class User(Module):
         username: str
         email: str
         password: str
@@ -29,7 +29,7 @@ class SecretKeeper:
         pc_name: str
 
     database: SQLite
-    django_admin_user: DjangoAdminUser
+    admin_user: User
     developer: Developer
     django: Django
 
