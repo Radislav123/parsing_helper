@@ -24,5 +24,6 @@ setup(
     name = project_data["package_name"],
     version = project_data["version"],
     install_requires = requirements,
-    data_files = [("", [PROJECT_DATA_PATH, PROJECT_REQUIREMENTS_PATH])]
+    data_files = [("", [PROJECT_DATA_PATH, PROJECT_REQUIREMENTS_PATH])],
+    packages = ["parsing_helper"],
 )

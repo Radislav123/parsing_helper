@@ -24,11 +24,14 @@ def main() -> None:
         repository.git.tag("-d", removing_tag)
         print(f"Удален тэг {arguments.tag_name}")
     else:
-        repository.create_tag(get_version(), message = arguments.message)
-        message = f"Добавлен тэг {arguments.tag_name}"
-        if arguments.message:
-            message += f" с сообщением \"{arguments.message}\""
-        print(message)
+        try:
+            repository.create_tag(get_version(), message = arguments.message)
+            message = f"Добавлен тэг {arguments.tag_name}"
+            if arguments.message:
+                message += f" с сообщением \"{arguments.message}\""
+            print(message)
+        except git.GitCommandError as error:
+            print(error.stderr)
 
 
 if __name__ == "__main__":
