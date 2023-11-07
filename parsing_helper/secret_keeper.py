@@ -13,6 +13,9 @@ class SecretKeeper:
         json: dict
         secret_keeper: "SecretKeeper"
 
+        def get_dict(self) -> dict:
+            return self.json
+
     class SQLite(Module):
         ENGINE: str
         NAME: str
