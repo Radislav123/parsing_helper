@@ -13,8 +13,34 @@ class SecretKeeper:
         json: dict
         secret_keeper: "SecretKeeper"
 
+    class SQLite(Module):
+        ENGINE: str
+        NAME: str
+
+    class DjangoAdminUser(Module):
+        username: str
+        email: str
+        password: str
+
+    class Django(Module):
+        secret_key: str
+
+    class Developer(Module):
+        pc_name: str
+
+    database: SQLite
+    django_admin_user: DjangoAdminUser
+    developer: Developer
+    django: Django
+
     def __init__(self, settings: "Settings") -> None:
-        pass
+        self.add_module("database", settings.DATABASE_CREDENTIALS_PATH)
+        self.add_module("admin_user", settings.ADMIN_USER_CREDENTIALS_PATH)
+        self.add_module("django", settings.DJANGO_CREDENTIALS_PATH)
+        try:
+            self.add_module("developer", settings.DEVELOPER_CREDENTIALS_PATH)
+        except FileNotFoundError:
+            pass
 
     @staticmethod
     def read_json(path: str) -> dict:
