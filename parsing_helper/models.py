@@ -1,6 +1,6 @@
 from django.db import models
 
-import logger
+from parsing_helper import logger
 from parsing_helper.settings import Settings
 
 

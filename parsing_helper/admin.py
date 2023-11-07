@@ -2,8 +2,8 @@ import sys
 from typing import Type
 
 from django.contrib import admin
-from telegram_parser import models
 
+from parsing_helper import models
 from .settings import Settings
 
 

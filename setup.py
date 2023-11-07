@@ -10,7 +10,7 @@ with open(PROJECT_DATA_PATH, 'r') as project_data_file:
     project_data = json.load(project_data_file)
 
 with open(PROJECT_REQUIREMENTS_PATH, 'r') as project_requirements_file:
-    requirements_list = ["selenium"]
+    requirements_list = ["selenium", "django"]
     requirements = []
     for requirement in requirements_list:
         for project_requirement in project_requirements_file:
