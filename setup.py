@@ -1,5 +1,6 @@
 import json
 
+import setuptools
 from setuptools import setup
 
 
@@ -25,5 +26,5 @@ setup(
     version = project_data["version"],
     install_requires = requirements,
     data_files = [("", [PROJECT_DATA_PATH, PROJECT_REQUIREMENTS_PATH])],
-    packages = ["parsing_helper"],
+    packages = setuptools.find_packages(where = ".", exclude = ["secrets"]),
 )
