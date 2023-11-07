@@ -14,6 +14,8 @@ if TYPE_CHECKING:
 
 
 class ExtendedWebElement:
+    settings = settings.Settings()
+
     class WaitCondition:
         CLICKABLE = element_to_be_clickable
         PRESENCE = presence_of_element_located
@@ -24,7 +26,7 @@ class ExtendedWebElement:
         self.driver = page.driver
 
         self.xpath = xpath
-        self.wait = WebDriverWait(self.driver, settings.DEFAULT_TIMEOUT)
+        self.wait = WebDriverWait(self.driver, self.settings.SELENIUM_DEFAULT_TIMEOUT)
         self.initialized: dict[Callable, bool] = {}
         self._selenium_element: None | WebElement = None
 

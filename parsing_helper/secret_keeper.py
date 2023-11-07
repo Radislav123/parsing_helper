@@ -1,11 +1,16 @@
 import json
+from typing import TYPE_CHECKING
+
+
+if TYPE_CHECKING:
+    from parsing_helper.settings import Settings
 
 
 class SecretKeeper:
     class Module:
         pass
 
-    def __init__(self) -> None:
+    def __init__(self, settings: "Settings") -> None:
         pass
 
     @staticmethod
