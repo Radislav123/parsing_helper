@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import presence_of_all_elements_located
 from selenium.webdriver.support.wait import WebDriverWait
 
-from .element import ExtendedWebElement
-from .. import settings
+from parsing_helper.web_elements.element import ExtendedWebElement
+from parsing_helper import settings
 
 
 if TYPE_CHECKING:
