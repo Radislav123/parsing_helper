@@ -1,3 +1,4 @@
+import abc
 import sys
 from typing import Type
 
@@ -16,8 +17,7 @@ def register_models(model_admins: list[Type["BaseAdmin"]]) -> None:
         admin.site.register(model_admin.model, model_admin)
 
 
-class BaseAdmin(admin.ModelAdmin):
-    model = models.BaseModel
+class BaseAdmin(admin.ModelAdmin, abc.ABC):
     settings = Settings()
     hidden_fields = ()
     _fieldsets = ()
@@ -40,6 +40,11 @@ class BaseAdmin(admin.ModelAdmin):
             self.fieldsets = self._fieldsets
 
         super().__init__(model, admin_site)
+
+    @property
+    @abc.abstractmethod
+    def model(self) -> Type[models.BaseModel]:
+        return models.BaseModel
 
     def get_form(self, request, obj = None, **kwargs):
         form = super().get_form(request, obj, **kwargs)

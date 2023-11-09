@@ -1,10 +1,10 @@
 from django.contrib.auth import get_user_model, models as auth_models
 
-from parsing_helper.secret_keeper import SecretKeeper
 from parsing_helper.django_commands import django_command
+from parsing_helper.secret_keeper import SecretKeeper
 
 
-class Command(django_command.TelegramParserCommand):
+class CreateAdminCommand(django_command.BaseCommand):
     def handle(self, *args, **options) -> None:
         self.create_all_users()
 

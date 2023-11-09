@@ -1,11 +1,11 @@
 import abc
 
-from django.core.management.base import BaseCommand
+from django.core.management import base
 
 from parsing_helper import logger, settings
 
 
-class TelegramParserCommand(BaseCommand, abc.ABC):
+class BaseCommand(base.BaseCommand, abc.ABC):
     settings = settings.Settings()
 
     def __init__(self) -> None:
