@@ -1,7 +1,10 @@
 from selenium.webdriver import Chrome
 
+from parsing_helper.settings import Settings
+
 
 class BasePage:
+    settings: Settings
     # элементы url
     scheme: str
     domain: str
