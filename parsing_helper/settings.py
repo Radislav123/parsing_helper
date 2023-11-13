@@ -5,6 +5,7 @@ from secret_keeper import SecretKeeper
 
 class Settings:
     APP_NAME = str
+    _secrets: SecretKeeper = None
 
     def __init__(self):
         # Настройки Selenium
@@ -33,4 +34,8 @@ class Settings:
         self.CONSOLE_LOG_LEVEL = logging.DEBUG
         self.FILE_LOG_LEVEL = logging.DEBUG
 
-        self.secrets = SecretKeeper(self)
+    @property
+    def secrets(self) -> SecretKeeper:
+        if self._secrets is None:
+            self._secrets = SecretKeeper(self)
+        return self._secrets
