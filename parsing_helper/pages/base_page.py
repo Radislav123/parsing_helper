@@ -51,6 +51,12 @@ class BasePage:
             self.driver.add_cookie(cookie)
         self.open()
 
+    def set_cookies(self, cookies: list[dict[str, bool | int | str]]) -> None:
+        self.open()
+        for cookie in cookies:
+            self.driver.add_cookie(cookie)
+        self.open()
+
     def reset_cookies(self) -> None:
         self.driver.delete_all_cookies()
         self.open()
