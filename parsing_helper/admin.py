@@ -20,16 +20,17 @@ class BaseAdmin(admin.ModelAdmin):
     settings = Settings()
     hidden_fields = ()
     _fieldsets = ()
-    # {вставляемое_поле: поле_после_которого_вставляется}
-    # {field: None} - вставится последним
+    # {вставляемое_поле: поле_перед_которым_вставляется}
+    # {field: None} - вставится первым
     extra_list_display: dict[str, str] = {}
     not_required_fields: set[str] = set()
 
     def __init__(self, model, admin_site):
         self.list_display = [field for field in self._list_display if field not in self.hidden_fields]
         for field, before_field in self.extra_list_display.items():
+            self.list_display.remove(field)
             if before_field is None:
-                self.list_display.append(field)
+                self.list_display.insert(0, field)
             else:
                 self.list_display.insert(self.list_display.index(before_field), field)
         self.list_display = tuple(self.list_display)
